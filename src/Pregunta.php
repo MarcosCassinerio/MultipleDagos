@@ -20,7 +20,7 @@ class Pregunta implements PreguntaInterface{
         $this->descripcion = $descripcion;
         $this->correctas = $correctas;
         $this->incorrectas = $incorrectas;
-        $this->respuestas = array_merge($correctas, $incorrectas);
+        $this->respuestas = array_merge($this->correctas, $this->incorrectas);
     }
 
     public function Randomizar(){
