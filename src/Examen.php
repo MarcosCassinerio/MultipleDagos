@@ -27,7 +27,8 @@ class Examen implements ExamenInterface{
         foreach ($this->preguntas as $pregunta) {
             $pregunta->Randomizar();
         }
-        return $this->preguntas;
+        $preguntita = array_pop($this->preguntas);
+        return $preguntita;
     }
 
 }
