@@ -25,15 +25,15 @@ preguntas:
       - Pueden perder detalle y verse pixeladas cuando se amplían.
     respuestas_incorrectas: []
 
-  # - descripcion: Las extensiones de archivo que pertenecen al grupo de mapas de bits son
-  #   respuestas_correctas:
-  #     - "JPG, BMP, PNG, GIF"
-  #   respuestas_incorrectas:
-  #     - Solo PNG
-  #     - Solo JPG
-  #     - Solo BMP
-  #     - Solo GIF
-  #     - "JPG, BMP, PNG, GIF y SVG"
+  - descripcion: Las extensiones de archivo que pertenecen al grupo de mapas de bits son
+    respuestas_correctas:
+      - "JPG, BMP, PNG, GIF"
+    respuestas_incorrectas:
+      - Solo PNG
+      - Solo JPG
+      - Solo BMP
+      - Solo GIF
+      - "JPG, BMP, PNG, GIF y SVG"
 
 
   # - descripcion: ¿Cuál de las siguientes afirmaciones es incorrecta?
