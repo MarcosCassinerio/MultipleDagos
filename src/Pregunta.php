@@ -24,7 +24,8 @@ class Pregunta implements PreguntaInterface{
     }
 
     public function Randomizar(){
-        shuffle($this->respuestas);
+        $cantidadPreguntas = count($this->respuestas);
+        $this->respuestas = array_rand($this->respuestas, $cantidadPreguntas);
     }
 
 }
