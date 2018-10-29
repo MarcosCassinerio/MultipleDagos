@@ -19,21 +19,15 @@ class Examen implements ExamenInterface{
             $descripcion = $pregunta["descripcion"];
             $correctas = $pregunta["respuestas_correctas"];
             $incorrectas = $pregunta["respuestas_incorrectas"];
+            $todasAnteriores = "";
+            $ningunaAnteriores = "";
             if(!array_key_exists("ocultar_opcion_todas_las_anteriores",$pregunta)){
                 $todasAnteriores = "Todas de las anteriores";
-                $anteriores += 1;
-            }
-            else{
-                $todasAnteriores = "";
             }
             if(!array_key_exists("ocultas_opcion_ninguna_de_las_anteriores",$pregunta)){
                 $ningunaAnteriores = "Ninguna de las anteriores";
-                $anteriores += 2;
             }
-            else{
-                $ningunaAnteriores = "";
-            }
-                array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores));
+            array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores));
         }
     }
 
