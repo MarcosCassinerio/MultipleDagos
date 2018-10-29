@@ -17,8 +17,17 @@ class Examen implements ExamenInterface{
             $descripcion = $pregunta["descripcion"];
             $correctas = $pregunta["respuestas_correctas"];
             $incorrectas = $pregunta["respuestas_incorrectas"];
+            $this->preguntas = array();
             array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas));
         }
+    }
+
+    public function GetPreguntas(){
+        shuffle($this->preguntas);
+        foreach ($this->preguntas as $pregunta) {
+            $pregunta->Randomizar();
+        }
+        return $this->preguntas;
     }
 
 }
