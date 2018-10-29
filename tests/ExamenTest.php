@@ -3,11 +3,12 @@
 namespace MultipleChoice;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Yaml\Yaml;
 
 class ExamenTest extends TestCase {
 
     public function testLeerYamil() {
-        $yamil = yaml_parse_file("../preguntas.yml");
-        var_dump($yamil);
+        $yamil = Yaml::parse(file_get_contents("./preguntas.yml"));
+        $prueba = new Examen($yamil);
     }
 }

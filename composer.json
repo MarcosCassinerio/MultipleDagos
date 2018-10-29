@@ -5,7 +5,10 @@
     },
     "autoload": {
         "psr-4": {
-            "TrabajoTarjeta\\": "src"
+            "MultipleChoice\\": "src"
         }
+    },
+    "require": {
+        "symfony/yaml": "^4.1"
     }
 }
