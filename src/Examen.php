@@ -15,10 +15,25 @@ class Examen implements ExamenInterface{
     public function __CONSTRUCT($yamil){
         $this->preguntas = array();
         foreach ($yamil["preguntas"] as $pregunta) {
+            $anteriores = 0;
             $descripcion = $pregunta["descripcion"];
             $correctas = $pregunta["respuestas_correctas"];
             $incorrectas = $pregunta["respuestas_incorrectas"];
-            array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas));
+            if(!array_key_exists("ocultar_opcion_todas_las_anteriores",$pregunta)){
+                $todasAnteriores = "Todas de las anteriores";
+                $anteriores += 1;
+            }
+            else{
+                $todasAnteriores = "";
+            }
+            if(!array_key_exists("ocultas_opcion_ninguna_de_las_anteriores",$pregunta)){
+                $ningunaAnteriores = "Ninguna de las anteriores";
+                $anteriores += 2;
+            }
+            else{
+                $ningunaAnteriores = "";
+            }
+                array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores));
         }
     }
 
@@ -27,8 +42,7 @@ class Examen implements ExamenInterface{
         foreach ($this->preguntas as $pregunta) {
             $pregunta->Randomizar();
         }
-        $preguntita = array_pop($this->preguntas);
-        return $preguntita;
+        return $this->preguntas;
     }
 
 }
