@@ -4,7 +4,7 @@ namespace MultipleChoice;
 
 use Symfony\Component\Yaml\Yaml;
 
-class Examen implements ExamenInterface{
+class Pregunta implements PreguntaInterface{
     public $descripcion;
     public $respuestas;
 
