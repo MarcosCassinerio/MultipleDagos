@@ -13,11 +13,11 @@ class Examen implements ExamenInterface{
      * 
      */
     public function __CONSTRUCT($yamil){
+        $this->preguntas = array();
         foreach ($yamil["preguntas"] as $pregunta) {
             $descripcion = $pregunta["descripcion"];
             $correctas = $pregunta["respuestas_correctas"];
             $incorrectas = $pregunta["respuestas_incorrectas"];
-            $this->preguntas = array();
             array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas));
         }
     }
