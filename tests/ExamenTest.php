@@ -11,7 +11,7 @@ class ExamenTest extends TestCase {
         $yamil = Yaml::parse(file_get_contents("./preguntas.yml"));
         $prueba = new Examen($yamil);
         $intentoUno = $prueba->getPreguntas();
-        echo $intentoUno->preguntas;
+        echo "$intentoUno->preguntas";
         $intentoDos = $prueba->getPreguntas();
         $this->assertNotEquals($intentoUno, $intentoDos);
     }
