@@ -17,13 +17,13 @@ preguntas:
       - Pueden perder detalle y verse pixeladas cuando se amplían.
       - A cada píxel se le asigna una ubicación y un valor de color específico.
 
-  # - descripcion: Para las imágenes de mapas de bits se cumple que
-  #   respuestas_correctas:
-  #     - A cada píxel se le asigna una ubicación y un valor de color específico.
-  #     - Constan de un número fijo de píxeles.
-  #     - Son creadas por los escaners y las cámaras digitales.
-  #     - Pueden perder detalle y verse pixeladas cuando se amplían.
-  #   respuestas_incorrectas: []
+  - descripcion: Para las imágenes de mapas de bits se cumple que
+    respuestas_correctas:
+      - A cada píxel se le asigna una ubicación y un valor de color específico.
+      - Constan de un número fijo de píxeles.
+      - Son creadas por los escaners y las cámaras digitales.
+      - Pueden perder detalle y verse pixeladas cuando se amplían.
+    respuestas_incorrectas: []
 
   # - descripcion: Las extensiones de archivo que pertenecen al grupo de mapas de bits son
   #   respuestas_correctas:
