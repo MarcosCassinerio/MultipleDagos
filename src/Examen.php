@@ -19,6 +19,7 @@ class Examen implements ExamenInterface{
             $descripcion = $pregunta["descripcion"];
             $correctas = $pregunta["respuestas_correctas"];
             $incorrectas = $pregunta["respuestas_incorrectas"];
+<<<<<<< HEAD
             if(!array_key_exists("ocultar_opcion_todas_las_anteriores",$pregunta)){
                 $todasAnteriores = "Todas de las anteriores";
                 $anteriores += 1;
@@ -34,14 +35,18 @@ class Examen implements ExamenInterface{
                 $ningunaAnteriores = "";
             }
                 array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores));
+=======
+            array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas));
+>>>>>>> 0a1ab1f3d15797b3d8124946ab03e54884a1b133
         }
     }
 
     public function GetPreguntas(){
-        shuffle($this->preguntas);
-        foreach ($this->preguntas as $pregunta) {
+        $p = $this->preguntas;
+        foreach ( $this->preguntas as &$pregunta) {
             $pregunta->Randomizar();
         }
+        shuffle($this->preguntas);
         return $this->preguntas;
     }
 
