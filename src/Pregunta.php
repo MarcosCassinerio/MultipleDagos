@@ -4,6 +4,7 @@ namespace MultipleChoice;
 
 use Symfony\Component\Yaml\Yaml;
 
+
 class Pregunta implements PreguntaInterface{
     public $descripcion;
     public $respuestas;
