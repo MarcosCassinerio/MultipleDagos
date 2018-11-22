@@ -18,10 +18,10 @@ class ExamenTest extends TestCase {
         $this->assertNotEquals($intentoUno, $intentoDos);
     }
 
-    public function testTwigger(){
-        $testeo = "test";
-        $loader = new \Twig_Loader_Filesystem('tests');
-        $twig = new \Twig_Environment($loader);
-        \file_put_contents("hola.html", $twig->render("template.html", array('name' => $testeo)));
+    public function testGenerar(){
+        $yamil = Yaml::parse(\file_get_contents("./preguntas.yml"));
+        $prueba = new Examen($yamil);
+        $prueba->GenerarExamen(2,0);
     }
+
 }

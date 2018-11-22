@@ -2,8 +2,8 @@
 
 namespace MultipleChoice;
 
+require_once 'vendor/autoload.php';
 use Symfony\Component\Yaml\Yaml;
-
 class Examen implements ExamenInterface{
     protected $preguntas;
 
@@ -36,6 +36,15 @@ class Examen implements ExamenInterface{
             $pregunta->Randomizar();
         }
         return $this->preguntas;
+    }
+
+    public function GenerarExamen($cantidadDeTemas, $numeroDeEvaluacion){
+        $loader = new \Twig_Loader_Filesystem('tests');
+        $twig = new \Twig_Environment($loader);
+        for($i=0; $i<$cantidadDeTemas; $i++){
+            $preguntas = $this->GetPreguntas();
+            file_put_contents("tema".($i+1).".html", $twig->render("template.html", array('preguntas' => $preguntas, 'numero' => $numeroDeEvaluacion, 'tema' => ($i+1))));
+        }
     }
 
 }
