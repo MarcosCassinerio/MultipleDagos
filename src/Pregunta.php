@@ -25,11 +25,11 @@ class Pregunta implements PreguntaInterface{
     
     public function Randomizar(){
         shuffle($this->respuestas);
-        if ($this->todasAnteriores != null && !$this->estaTodasAnteriores()){
-            array_push($this->respuestas, $this->todasAnteriores);
+        if($this->todasAnteriores != NULL){
+            $this->ponerTodasAnteriores();
         }
-        if ($this->ningunaAnteriores != null && !$this->estaNingunaAnteriores()){
-            array_push($this->respuestas, $this->ningunaAnteriores);
+        if($this->ningunaAnteriores != NULL){
+            $this->ponerNingunaAnteriores();
         }
     }
 
@@ -54,7 +54,7 @@ class Pregunta implements PreguntaInterface{
     }
 
     public function obtenerLetra($rta){
-        $i = 0;
+        $i = 1;
         $temp = $this->respuestas;
         for ($respuesta = current($this->respuestas) ; $respuesta != FALSE ; $respuesta = next($this->respuestas)){
             if ($rta == $respuesta){
@@ -65,58 +65,56 @@ class Pregunta implements PreguntaInterface{
         }
     }
 
-    public function estaTodasAnteriores(){
-        $temp = $this->respuestas;
+    public function ponerTodasAnteriores(){
+        $temp = [];
         for ($respuesta = current($this->respuestas) ; $respuesta != FALSE ; $respuesta = next($this->respuestas)){
-            if ($this->todasAnteriores == $respuesta){
-                $this->respuestas = $temp;
-                return TRUE;
+            if ($this->todasAnteriores != $respuesta){
+                array_push($temp, $respuesta);
             }
         }
+        array_push($temp, $this->todasAnteriores);
         $this->respuestas = $temp;
-        return FALSE;
     }
 
-    public function estaNingunaAnteriores(){
-        $temp = $this->respuestas;
+    public function ponerNingunaAnteriores(){
+        $temp = [];
         for ($respuesta = current($this->respuestas) ; $respuesta != FALSE ; $respuesta = next($this->respuestas)){
-            if ($this->ningunaAnteriores == $respuesta){
-                $this->respuestas = $temp;
-                return TRUE;
+            if ($this->ningunaAnteriores != $respuesta){
+                array_push($temp, $respuesta);
             }
         }
+        array_push($temp, $this->ningunaAnteriores);
         $this->respuestas = $temp;
-        return FALSE;
     }
 
     public function convertirLetra($letra){
         $nuevo = [];
         for($i = current($letra) ; $i != FALSE ; $i = next($letra)){
             switch($i){
-                case 0:
-                array_push($nuevo, "A");
-                break;
                 case 1:
-                array_push($nuevo, "B");
-                break;
+                    array_push($nuevo, "A");
+                    break;
                 case 2:
-                array_push($nuevo, "C");
-                break;
+                    array_push($nuevo, "B");
+                    break;
                 case 3:
-                array_push($nuevo, "D");
-                break;
+                    array_push($nuevo, "C");
+                    break;
                 case 4:
-                array_push($nuevo, "E");
-                break;
+                    array_push($nuevo, "D");
+                    break;
                 case 5:
-                array_push($nuevo, "F");
-                break;
+                    array_push($nuevo, "E");
+                    break;
                 case 6:
-                array_push($nuevo, "G");
-                break;
+                    array_push($nuevo, "F");
+                    break;
                 case 7:
-                array_push($nuevo, "H");
-                break;
+                    array_push($nuevo, "G");
+                    break;
+                case 8:
+                    array_push($nuevo, "H");
+                    break;
             }
         }
         return $nuevo;
