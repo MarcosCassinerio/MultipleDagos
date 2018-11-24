@@ -21,7 +21,7 @@ class Examen implements ExamenInterface{
             $todasAnteriores = "";
             $ningunaAnteriores = "";
             if(!array_key_exists("ocultar_opcion_todas_las_anteriores",$pregunta)){
-                $todasAnteriores = "Todas de las anteriores";
+                $todasAnteriores = "Todas las anteriores";
             }
             if(!array_key_exists("ocultas_opcion_ninguna_de_las_anteriores",$pregunta)){
                 $ningunaAnteriores = "Ninguna de las anteriores";
@@ -43,6 +43,15 @@ class Examen implements ExamenInterface{
         $twig = new \Twig_Environment($loader);
         for($i=0; $i<$cantidadDeTemas; $i++){
             $preguntas = $this->GetPreguntas();
+            $respuestas = [];
+            $j = 0;
+            foreach ($this->preguntas as $pregunta) {
+                $letras = $pregunta->obtenerCorrecta();
+                $letras = $pregunta->convertirLetra($letras);
+                array_push($respuestas, $letras);
+                $j++;
+            }
+            file_put_contents("rta".($i+1).".html", $twig->render("respuestas.html", array('respuestas' => $respuestas, 'numero' => $numeroDeEvaluacion, 'tema' => ($i+1))));
             file_put_contents("tema".($i+1).".html", $twig->render("template.html", array('preguntas' => $preguntas, 'numero' => $numeroDeEvaluacion, 'tema' => ($i+1))));
         }
     }

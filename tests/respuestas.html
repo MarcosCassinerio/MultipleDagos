@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% for respuesta in respuestas %}
+            <h1>{{loop.index}})</h1>
+            {% for i in respuesta %}
+                <h1>{{i}}</h1>
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>
