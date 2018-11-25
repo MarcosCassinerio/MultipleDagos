@@ -5,7 +5,7 @@ namespace MultipleChoice;
 use Symfony\Component\Yaml\Yaml;
 
 
-class Pregunta implements PreguntaInterface{
+class Pregunta implements PreguntaInterface {
     public $descripcion;
     public $respuestas;
     public $todasAnteriores;
@@ -14,7 +14,7 @@ class Pregunta implements PreguntaInterface{
     protected $correctas;
     protected $incorrectas;
 
-    public function __CONSTRUCT($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores){
+    public function __CONSTRUCT($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores) {
         $this->descripcion = $descripcion;
         $this->correctas = $correctas;
         $this->incorrectas = $incorrectas;
@@ -23,41 +23,41 @@ class Pregunta implements PreguntaInterface{
         $this->respuestas = array_merge($correctas, $incorrectas);
     }
     
-    public function Randomizar(){
+    public function Randomizar() {
         shuffle($this->respuestas);
-        if($this->todasAnteriores != NULL){
+        if ($this->todasAnteriores != null) {
             $this->ponerTodasAnteriores();
         }
-        if($this->ningunaAnteriores != NULL){
+        if ($this->ningunaAnteriores != null) {
             $this->ponerNingunaAnteriores();
         }
     }
 
-    public function obtenerCorrecta(){
+    public function obtenerCorrecta() {
         $letra = [];
-        if ((current($this->incorrectas)) == FALSE){
+        if ((current($this->incorrectas)) == false) {
             array_push($letra, $this->obtenerLetra($this->todasAnteriores));
             return $letra;
         }
         
-        if ((current($this->correctas)) == FALSE){
+        if ((current($this->correctas)) == false) {
             array_push($letra, $this->obtenerLetra($this->ningunaAnteriores));
             return $letra;
         }
 
         $temp = $this->correctas;
-        for ($correcta = current($this->correctas) ; $correcta != FALSE ; $correcta = next($this->correctas)){
+        for ($correcta = current($this->correctas) ; $correcta != false ; $correcta = next($this->correctas)) {
             array_push($letra, $this->obtenerLetra($correcta));
         }
         $this->correctas = $temp;
         return $letra;
     }
 
-    public function obtenerLetra($rta){
+    public function obtenerLetra($rta) {
         $i = 1;
         $temp = $this->respuestas;
-        for ($respuesta = current($this->respuestas) ; $respuesta != FALSE ; $respuesta = next($this->respuestas)){
-            if ($rta == $respuesta){
+        for ($respuesta = current($this->respuestas) ; $respuesta != false ; $respuesta = next($this->respuestas)) {
+            if ($rta == $respuesta) {
                 $this->respuestas = $temp;
                 return $i;
             }
@@ -65,10 +65,10 @@ class Pregunta implements PreguntaInterface{
         }
     }
 
-    public function ponerTodasAnteriores(){
+    public function ponerTodasAnteriores() {
         $temp = [];
-        for ($respuesta = current($this->respuestas) ; $respuesta != FALSE ; $respuesta = next($this->respuestas)){
-            if ($this->todasAnteriores != $respuesta){
+        for ($respuesta = current($this->respuestas) ; $respuesta != false ; $respuesta = next($this->respuestas)) {
+            if ($this->todasAnteriores != $respuesta) {
                 array_push($temp, $respuesta);
             }
         }
@@ -76,10 +76,10 @@ class Pregunta implements PreguntaInterface{
         $this->respuestas = $temp;
     }
 
-    public function ponerNingunaAnteriores(){
+    public function ponerNingunaAnteriores() {
         $temp = [];
-        for ($respuesta = current($this->respuestas) ; $respuesta != FALSE ; $respuesta = next($this->respuestas)){
-            if ($this->ningunaAnteriores != $respuesta){
+        for ($respuesta = current($this->respuestas) ; $respuesta != false ; $respuesta = next($this->respuestas)) {
+            if ($this->ningunaAnteriores != $respuesta) {
                 array_push($temp, $respuesta);
             }
         }
@@ -87,10 +87,10 @@ class Pregunta implements PreguntaInterface{
         $this->respuestas = $temp;
     }
 
-    public function convertirLetra($letra){
+    public function convertirLetra($letra) {
         $nuevo = [];
-        for($i = current($letra) ; $i != FALSE ; $i = next($letra)){
-            switch($i){
+        for ($i = current($letra) ; $i != false ; $i = next($letra)) {
+            switch($i) {
                 case 1:
                     array_push($nuevo, "A");
                     break;
