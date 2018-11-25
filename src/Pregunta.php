@@ -4,7 +4,7 @@ namespace MultipleChoice;
 
 use Symfony\Component\Yaml\Yaml;
 
-class Pregunta implements PreguntaInterface{
+class Pregunta implements PreguntaInterface {
     public $descripcion;
     public $respuestas;
     public $todasAnteriores;
@@ -18,7 +18,7 @@ class Pregunta implements PreguntaInterface{
      * AAAA
      * 
      */
-    public function __CONSTRUCT($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores){
+    public function __CONSTRUCT($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores) {
         $this->descripcion = $descripcion;
         $this->correctas = $correctas;
         $this->incorrectas = $incorrectas;
@@ -27,7 +27,7 @@ class Pregunta implements PreguntaInterface{
         $this->ningunaAnteriores = $ningunaAnteriores;
     }
 
-    public function Randomizar(){
+    public function Randomizar() {
         shuffle($this->respuestas);
     }
 
