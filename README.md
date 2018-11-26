@@ -8,3 +8,17 @@
 # Consigna
 
 Este trabajo consiste en, a partir de un archivo .yml que contiene todos los datos de una prueba (preguntas, respuestas correctas e incorrecta y si estan habilitadas las respuestas "todas las anteriores" y "ninguna de las anteriores"), generar 2 archivos HTML. Uno tiene que ser la prueba para los alumnos, con el numero de prueba, el tema y con las preguntas y sus respectivas respuestas desordenadas. Y el otro con las respuestas de cada pregunta para el profesor, una por cada tema, ya que en diferentes temas las preguntas estaran desordenadas y asi mismo sus respuestas.
+
+Para poder hacer uso de nuestro codigo, el archivo que se pasa con las preguntas de la prueba tiene que tener un tipo de archivo y formato especificos, de no ser asi, no se podrian leer ni las preguntas ni sus respuestas. Un ejemplo de lo que tendria que haber en el archivo es el siguiente:
+
+preguntas:
+
+  - descripcion: El término pixel hace referencia a
+    respuestas_correctas:
+      - La unidad mínima de información de una imagen.
+    respuestas_incorrectas:
+      - La longitud de la diagonal de una imagen en pulgadas.
+      - La cantidad de puntos por pulgada.
+      - La cantidad de colores de un punto.
+    ocultar_opcion_todas_las_anteriores: true
+    
