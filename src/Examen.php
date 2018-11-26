@@ -24,7 +24,7 @@ class Examen implements ExamenInterface {
         }
     }
 
-    public function GetPreguntas() {
+    public function getPreguntas() {
         shuffle($this->preguntas);
         foreach ($this->preguntas as $pregunta) {
             $pregunta->Randomizar();
@@ -32,7 +32,7 @@ class Examen implements ExamenInterface {
         return $this->preguntas;
     }
 
-    public function GenerarExamen($cantidadDeTemas, $numeroDeEvaluacion) {
+    public function generarExamen($cantidadDeTemas, $numeroDeEvaluacion) {
         $loader = new \Twig_Loader_Filesystem('tests');
         $twig = new \Twig_Environment($loader);
         for ($i = 0; $i < $cantidadDeTemas; $i++) {

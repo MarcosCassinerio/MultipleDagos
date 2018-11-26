@@ -22,7 +22,7 @@ class Pregunta implements PreguntaInterface {
         $this->respuestas = array_merge($correctas, $incorrectas);
     }
   
-    public function Randomizar() {
+    public function randomizar() {
         shuffle($this->respuestas);
         if ($this->todasAnteriores != null) {
             $this->ponerTodasAnteriores();
@@ -110,9 +110,6 @@ class Pregunta implements PreguntaInterface {
                     break;
                 case 7:
                     array_push($nuevo, "G");
-                    break;
-                case 8:
-                    array_push($nuevo, "H");
                     break;
             }
         }
