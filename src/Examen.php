@@ -44,7 +44,7 @@ class Examen implements ExamenInterface {
                 $letras = $pregunta->convertirLetra($letras);
                 array_push($respuestas, $letras);
             }
-            file_put_contents("rta".($i+1).".html", $twig->render("respuestas.html", array('respuestas' => $respuestas, 'numero' => $numeroDeEvaluacion, 'tema' => ($i+1))));
+            file_put_contents("rta".($i+1).".html", $twig->render("respuestas.html", array('preguntas' => $preguntas, 'respuestas' => $respuestas, 'numero' => $numeroDeEvaluacion, 'tema' => ($i+1))));
             file_put_contents("tema".($i+1).".html", $twig->render("template.html", array('preguntas' => $preguntas, 'numero' => $numeroDeEvaluacion, 'tema' => ($i+1))));
         }
     }
