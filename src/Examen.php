@@ -20,10 +20,10 @@ class Examen implements ExamenInterface {
             $incorrectas = $pregunta["respuestas_incorrectas"];
             $todasAnteriores = "";
             $ningunaAnteriores = "";
-            if (!array_key_exists("ocultar_opcion_todas_las_anteriores",$pregunta)) {
+            if (!array_key_exists("ocultar_opcion_todas_las_anteriores", $pregunta)) {
                 $todasAnteriores = "Todas de las anteriores";
             }
-            if (!array_key_exists("ocultas_opcion_ninguna_de_las_anteriores",$pregunta)) {
+            if (!array_key_exists("ocultas_opcion_ninguna_de_las_anteriores", $pregunta)) {
                 $ningunaAnteriores = "Ninguna de las anteriores";
             }
             array_push($this->preguntas, new Pregunta($descripcion, $correctas, $incorrectas, $todasAnteriores, $ningunaAnteriores));
