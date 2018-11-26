@@ -11,14 +11,4 @@ Este trabajo consiste en, a partir de un archivo .yml que contiene todos los dat
 
 Para poder hacer uso de nuestro codigo, el archivo que se pasa con las preguntas de la prueba tiene que tener un tipo de archivo y formato especificos, de no ser asi, no se podrian leer ni las preguntas ni sus respuestas. Un ejemplo de lo que tendria que haber en el archivo es el siguiente:
 
-preguntas:
-
-  --- descripcion: El término pixel hace referencia a
-    respuestas_correctas:
-      --- La unidad mínima de información de una imagen.
-    respuestas_incorrectas:
-      --- La longitud de la diagonal de una imagen en pulgadas.
-      --- La cantidad de puntos por pulgada.
-      --- La cantidad de colores de un punto.
-    ocultar_opcion_todas_las_anteriores: true
-    
+![Ejemplo de yml](https://github.com/Rattlehead15/MultipleDagos/blob/master/ejemplo.png)
