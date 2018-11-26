@@ -22,6 +22,10 @@ class ExamenTest extends TestCase {
         $yamil = Yaml::parse(\file_get_contents("./preguntas.yml"));
         $prueba = new Examen($yamil);
         $prueba->GenerarExamen(2,0);
+        $this->assertTrue(file_exists("rta1.html"));
+        $this->assertTrue(file_exists("rta2.html"));
+        $this->assertTrue(file_exists("tema1.html"));
+        $this->assertTrue(file_exists("tema2.html"));
     }
 
 }
