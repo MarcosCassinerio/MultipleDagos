@@ -1,6 +1,7 @@
 # MultipleDagos
 [![Build Status](https://travis-ci.org/Rattlehead15/MultipleDagos.svg?branch=master)](https://travis-ci.org/Rattlehead15/MultipleDagos)
 [![Coverage Status](https://coveralls.io/repos/github/Rattlehead15/MultipleDagos/badge.svg?branch=master)](https://coveralls.io/github/Rattlehead15/MultipleDagos?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Rattlehead15/MultipleDagos/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Rattlehead15/MultipleDagos/?branch=master)
 
 # Multiple Choice - Marcos Cassinerio y Lautaro Garavano
 
