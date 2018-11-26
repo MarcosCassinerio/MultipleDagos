@@ -6,7 +6,6 @@ require_once 'vendor/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 class Examen implements ExamenInterface {
     protected $preguntas;
-
     public function __CONSTRUCT($yamil) {
         $this->preguntas = array();
         foreach ($yamil["preguntas"] as $pregunta) {

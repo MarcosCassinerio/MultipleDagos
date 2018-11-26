@@ -4,7 +4,6 @@ namespace MultipleChoice;
 
 use Symfony\Component\Yaml\Yaml;
 
-
 class Pregunta implements PreguntaInterface {
     public $descripcion;
     public $respuestas;
@@ -22,7 +21,7 @@ class Pregunta implements PreguntaInterface {
         $this->ningunaAnteriores = $ningunaAnteriores;
         $this->respuestas = array_merge($correctas, $incorrectas);
     }
-    
+  
     public function Randomizar() {
         shuffle($this->respuestas);
         if ($this->todasAnteriores != null) {
