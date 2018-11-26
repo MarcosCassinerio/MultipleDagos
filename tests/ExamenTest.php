@@ -2,6 +2,7 @@
 
 namespace MultipleChoice;
 
+require_once 'vendor/autoload.php';
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
 
@@ -16,4 +17,11 @@ class ExamenTest extends TestCase {
         $intentoDos = $intentoDos[0]->respuestas[0];
         $this->assertNotEquals($intentoUno, $intentoDos);
     }
+
+    public function testGenerar(){
+        $yamil = Yaml::parse(\file_get_contents("./preguntas.yml"));
+        $prueba = new Examen($yamil);
+        $prueba->GenerarExamen(2,0);
+    }
+
 }
