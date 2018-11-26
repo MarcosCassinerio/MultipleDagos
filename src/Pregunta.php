@@ -45,7 +45,7 @@ class Pregunta implements PreguntaInterface {
         }
 
         $temp = $this->correctas;
-        for ($correcta = current($this->correctas) ; $correcta != false ; $correcta = next($this->correctas)) {
+        for ($correcta = current($this->correctas); $correcta != false; $correcta = next($this->correctas)) {
             array_push($letra, $this->obtenerLetra($correcta));
         }
         $this->correctas = $temp;
@@ -55,7 +55,7 @@ class Pregunta implements PreguntaInterface {
     public function obtenerLetra($rta) {
         $i = 1;
         $temp = $this->respuestas;
-        for ($respuesta = current($this->respuestas) ; $respuesta != false ; $respuesta = next($this->respuestas)) {
+        for ($respuesta = current($this->respuestas); $respuesta != false; $respuesta = next($this->respuestas)) {
             if ($rta == $respuesta) {
                 $this->respuestas = $temp;
                 return $i;
@@ -66,7 +66,7 @@ class Pregunta implements PreguntaInterface {
 
     public function ponerTodasAnteriores() {
         $temp = [];
-        for ($respuesta = current($this->respuestas) ; $respuesta != false ; $respuesta = next($this->respuestas)) {
+        for ($respuesta = current($this->respuestas); $respuesta != false; $respuesta = next($this->respuestas)) {
             if ($this->todasAnteriores != $respuesta) {
                 array_push($temp, $respuesta);
             }
@@ -77,7 +77,7 @@ class Pregunta implements PreguntaInterface {
 
     public function ponerNingunaAnteriores() {
         $temp = [];
-        for ($respuesta = current($this->respuestas) ; $respuesta != false ; $respuesta = next($this->respuestas)) {
+        for ($respuesta = current($this->respuestas); $respuesta != false; $respuesta = next($this->respuestas)) {
             if ($this->ningunaAnteriores != $respuesta) {
                 array_push($temp, $respuesta);
             }
@@ -88,8 +88,8 @@ class Pregunta implements PreguntaInterface {
 
     public function convertirLetra($letra) {
         $nuevo = [];
-        for ($i = current($letra) ; $i != false ; $i = next($letra)) {
-            switch($i) {
+        for ($i = current($letra); $i != false; $i = next($letra)) {
+            switch ($i) {
                 case 1:
                     array_push($nuevo, "A");
                     break;
